@@ -1,9 +1,9 @@
+arch
+matplotlib
+numpy
+pandas
+plotly
+scikit-learn
+statsmodels
 streamlit
 yfinance
-pandas
-numpy
-matplotlib
-plotly
-statsmodels
-arch
-scikit-learn
