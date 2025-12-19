@@ -1,3 +1,8 @@
+"""
+Standalone Script for Financial Time Series Forecasting.
+This script runs the analysis pipeline (OLS, ARIMA, GARCH) without the UI.
+Useful for debugging and reproducible research.
+"""
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
