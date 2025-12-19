@@ -30,8 +30,13 @@ def get_stock_data(ticker, start_date, end_date):
         df.columns = df.columns.droplevel(1)
         
     # Rename for consistency
+    # Rename for consistency across models
     col_name = df.columns[0]
     df.rename(columns={col_name: 'Price'}, inplace=True)
+    
+    # Check for zero values to avoid log errors
+    if (df['Price'] <= 0).any():
+        df = df[df['Price'] > 0]
     
     # Calculate Log Returns (standard for GARCH)
     df['Log_Return'] = np.log(df['Price'] / df['Price'].shift(1))
