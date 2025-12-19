@@ -10,7 +10,7 @@ from utils import get_stock_data
 from models import TimeSeriesModels
 
 # Page Config
-st.set_page_config(page_title="Financial Forecasting App", layout="wide", page_icon="📈")
+st.set_page_config(page_title="Financial Forecasting App", layout="wide", page_icon="💰")
 
 # Styling
 st.markdown("""
