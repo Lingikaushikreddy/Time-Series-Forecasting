@@ -1,4 +1,6 @@
 # Time Series Forecasting Project (FIN41660)
+![Status](https://img.shields.io/badge/Status-Completed-success)
+![Python](https://img.shields.io/badge/Python-3.9%2B-blue)
 
 ## Overview
 This project is an interactive Financial Time Series Forecasting tool developed for the FIN41660 Financial Econometrics module. It compares three key econometric models:
