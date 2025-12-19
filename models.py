@@ -6,6 +6,10 @@ from arch import arch_model
 from sklearn.metrics import mean_squared_error, mean_absolute_error
 
 class TimeSeriesModels:
+    """
+    Class encapsulating OLS, ARIMA, and GARCH model logic.
+    Handles data splitting, training, and evaluation.
+    """
     def __init__(self, data):
         """
         Args:
