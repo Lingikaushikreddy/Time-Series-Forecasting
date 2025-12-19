@@ -71,3 +71,6 @@ python standalone_script.py
 ## Contributing
 
 - **Course:** FIN41660, Academic Year 2025/2026
+ 
+## License
+This project is for educational purposes only.
