@@ -49,10 +49,11 @@ streamlit run app.py
 ```
 
 ### 2. Run the Standalone Script
-To run the analysis without the UI (prints metrics to console):
+To run the analysis without the UI (prints metrics to console and exports to CSV):
 ```bash
 python standalone_script.py
 ```
+This will generate a `metrics_summary.csv` file with RMSE, MAE, and MSE values for reproducibility.
 
 ## Project Structure
 - `app.py`: Main Streamlit application file.
