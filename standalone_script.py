@@ -8,6 +8,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from utils import get_stock_data
 from models import TimeSeriesModels
+from sklearn.metrics import mean_squared_error, mean_absolute_error
 import warnings
 
 warnings.filterwarnings("ignore")
@@ -58,6 +59,45 @@ def main():
     print("GARCH Model Trained.")
     print("GARCH Summary Head:")
     print(str(garch_fit.summary())[:500] + "...")
+    
+    # Calculate explicit metrics for reproducibility
+    print("\n==========================================")
+    print("   FINAL METRICS SUMMARY")
+    print("==========================================")
+    
+    # OLS Metrics
+    rmse_ols = np.sqrt(mean_squared_error(ts_models.test, ols_preds))
+    mae_ols = mean_absolute_error(ts_models.test, ols_preds)
+    mse_ols = mean_squared_error(ts_models.test, ols_preds)
+    
+    print("\nOLS METRICS:")
+    print(f"  RMSE: {rmse_ols:.6f}")
+    print(f"  MAE:  {mae_ols:.6f}")
+    print(f"  MSE:  {mse_ols:.6f}")
+    
+    # ARIMA Metrics
+    try:
+        rmse_arima = np.sqrt(mean_squared_error(ts_models.test, arima_preds))
+        mae_arima = mean_absolute_error(ts_models.test, arima_preds)
+        mse_arima = mean_squared_error(ts_models.test, arima_preds)
+        
+        print("\nARIMA METRICS:")
+        print(f"  RMSE: {rmse_arima:.6f}")
+        print(f"  MAE:  {mae_arima:.6f}")
+        print(f"  MSE:  {mse_arima:.6f}")
+    except:
+        print("\nARIMA METRICS: Not available (model failed)")
+    
+    # Save metrics to CSV for reproducibility
+    metrics_df = pd.DataFrame({
+        'Model': ['OLS', 'ARIMA'],
+        'RMSE': [rmse_ols, rmse_arima if 'rmse_arima' in locals() else np.nan],
+        'MAE': [mae_ols, mae_arima if 'mae_arima' in locals() else np.nan],
+        'MSE': [mse_ols, mse_arima if 'mse_arima' in locals() else np.nan]
+    })
+    
+    metrics_df.to_csv('metrics_summary.csv', index=False)
+    print("\n✓ Metrics saved to 'metrics_summary.csv'")
     
     print("\n==========================================")
     print("   Analysis Complete")
