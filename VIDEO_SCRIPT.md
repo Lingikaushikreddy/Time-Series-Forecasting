@@ -25,7 +25,7 @@
 
 ## Code & Standalone Script (8:00 - 9:00)
 *   **Speaker 1:** Per the requirements, we also have a `standalone_script.py` which runs the same analysis in the terminal without the UI.
-*   **Speaker 1:** (Show terminal output) It outputs the same metrics (MSE, RMSE) ensuring our results are reproducible.
+*   **Speaker 1:** (Show terminal output) It outputs the same metrics (MSE, RMSE, MAE) and **exports them to a CSV file** for full reproducibility.
 
 ## Conclusion (9:00 - 10:00)
 *   **All:** In conclusion, we successfully applied econometric theory to build a practical tool. We learned about the challenges of real-world data and model fitting. Thank you!
